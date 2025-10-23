@@ -1,0 +1,192 @@
+/* === RESETEO === */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "IBM Plex Mono", monospace;
+    background: radial-gradient(circle at center, #101820, #06080a);
+    color: #f0f0f0;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* === SCREENS === */
+#MenuScreen,
+#WinnerScreen,
+#LoserScreen {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease;
+}
+
+#MenuScreen {
+    background: linear-gradient(145deg, #1a1a40, #222244);
+    background-image: radial-gradient(circle at 30% 30%, #3a3af0 0%, transparent 70%), 
+                      radial-gradient(circle at 70% 70%, #3af0c0 0%, transparent 70%);
+}
+
+#WinnerScreen {
+    background: linear-gradient(145deg, #004d40, #00695c);
+    background-image: radial-gradient(circle at 20% 80%, #00ffcc33 0%, transparent 70%), 
+                      radial-gradient(circle at 80% 30%, #66ff99 0%, transparent 70%);
+}
+
+#LoserScreen {
+    background: linear-gradient(145deg, #3a0000, #550000);
+    background-image: radial-gradient(circle at 30% 70%, #ff000022 0%, transparent 70%), 
+                      radial-gradient(circle at 70% 40%, #ff880022 0%, transparent 70%);
+}
+
+/* === TÍTULOS PRINCIPALES === */
+span {
+    font-family: "Amatic SC", cursive;
+    font-size: 8em;
+    letter-spacing: 4px;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff, 0 0 40px #00eaff;
+    user-select: none;
+}
+
+.jittery span {
+    animation: jitter 300ms linear infinite;
+}
+
+@keyframes jitter {
+    25% { transform: rotate(0.6deg) scale(1.01); }
+    50% { transform: rotate(-0.6deg) scale(1.015); }
+    75% { transform: rotate(0.4deg) scale(1.02); }
+}
+
+/* === BOTONES === */
+button {
+    background: linear-gradient(135deg, #00eaff, #0080ff);
+    border: none;
+    border-radius: 12px;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Amatic SC", sans-serif;
+    font-size: 2.2em;
+    letter-spacing: 1px;
+    padding: 0.4em 1em;
+    margin: 0.8em;
+    transition: all 0.25s ease;
+    box-shadow: 0 0 15px rgba(0, 200, 255, 0.6), 0 0 30px rgba(0, 200, 255, 0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #00b3ff, #0066ff);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 200, 255, 0.9);
+}
+
+button:active {
+    transform: scale(0.98);
+    box-shadow: 0 0 10px rgba(0, 200, 255, 0.6);
+}
+
+/* === CONTAINER Y JUEGO === */
+.container {
+    margin-top: 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game {
+    text-align: center;
+}
+
+/* === CAJAS DE INFORMACIÓN (VIDAS, SCORE, ETC) === */
+.box {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2em auto;
+    padding: 1em 2em;
+    width: 16em;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+.lives-box {
+    background: rgba(255, 0, 80, 0.25);
+}
+
+.points-box {
+    background: rgba(0, 180, 255, 0.25);
+}
+
+.score-box {
+    background: rgba(255, 200, 50, 0.25);
+}
+
+.player-box {
+    background: rgba(180, 0, 255, 0.25);
+}
+
+/* === TEXTOS === */
+h3 {
+    padding: 0.5em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #00eaff;
+}
+
+.lives {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-shadow: 0 0 10px #ff0040;
+}
+
+/* === EFECTOS GLOBALES === */
+button, span, h3, .lives {
+    transition: 0.3s ease all;
+}
+
+/* === PEQUEÑO TOQUE AL JUEGO === */
+#gameScreen {
+    position: relative;
+    height: 100vh;
+    background: radial-gradient(circle at center, #0a0f15 0%, #05070a 100%);
+    overflow: hidden;
+}
+
+/* === TITULOS GRANDES === */
+#MenuScreen span,
+#WinnerScreen span,
+#LoserScreen span {
+  font-size: 200px !important;
+  line-height: 1em;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+}
+
+/* === PANEL DE ESCALADO DEL JUEGO === */
+#PanelScale {
+    position: absolute;
+    width: 800px;
+    height: 150px;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 4px solid #00eaff;
+    box-shadow: 0 0 20px rgba(0, 234, 255, 0.7);
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    z-index: 10;
+}

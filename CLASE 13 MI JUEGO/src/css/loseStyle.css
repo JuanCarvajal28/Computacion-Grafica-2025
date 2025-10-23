@@ -1,0 +1,72 @@
+body {
+  overflow: hidden;
+  background: #0c1713 repeating-linear-gradient(
+    135deg,
+    transparent,
+    transparent 1em,
+    rgba(255, 255, 255, 0.1) 1em,
+    rgba(255, 255, 255, 0.1) 2em
+  ) !important;
+}
+
+.containerLose {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  position: relative;
+}
+
+.containerLose h1 {
+  font-size: 4rem; /* antes era gigante */
+  letter-spacing: 5px;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #ff5555, #ff9999);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: pulse 2.5s infinite;
+}
+
+.containerLose p {
+  margin-top: 15px;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 10px rgba(255, 100, 100, 0.6);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(1.05); }
+}
+
+/* estrellas */
+.stars, .stars1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background: transparent;
+  animation: animStar 100s linear infinite;
+}
+
+@keyframes animStar {
+  from { transform: translateY(0); }
+  to { transform: translateY(-600px); }
+}
+
+/* === TITULOS GRANDES === */
+#MenuScreen span,
+#WinnerScreen span,
+#LoserScreen span {
+  font-size: 200px !important;
+  line-height: 1em;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+}

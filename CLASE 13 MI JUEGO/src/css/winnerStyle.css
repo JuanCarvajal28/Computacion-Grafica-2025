@@ -1,0 +1,127 @@
+/* === EFECTO GLOBAL === */
+body {
+  overflow: hidden;
+  margin: 0;
+  background: radial-gradient(circle at center, #00161f, #000810);
+  font-family: 'Orbitron', sans-serif;
+  color: #ffffff;
+}
+
+/* === CONTENEDOR CENTRAL === */
+#WinnerScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+#WinnerScreen span {
+  font-size: 5rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #00ffff, #00ff88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(0, 255, 200, 0.4);
+  animation: winner-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes winner-glow {
+  0% { text-shadow: 0 0 10px #00ffff, 0 0 30px #00ffbb; transform: scale(1); }
+  100% { text-shadow: 0 0 30px #00ffcc, 0 0 60px #00ffaa; transform: scale(1.05); }
+}
+
+#WinnerScreen .game button {
+  margin-top: 1.5em;
+  background: linear-gradient(135deg, #00ffcc, #0088ff);
+  border: none;
+  border-radius: 12px;
+  padding: 0.6em 1.4em;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+#WinnerScreen .game button:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: linear-gradient(135deg, #00c8ff, #00ffaa);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.9);
+}
+
+#WinnerScreen .game button:active {
+  transform: scale(0.98);
+}
+
+/* === FUEGOS ARTIFICIALES === */
+.pyro {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pyro > .before,
+.pyro > .after {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  box-shadow: 0 0 #fff;
+  animation: bang 1s ease-out infinite, gravity 1s ease-in infinite, position 5s linear infinite;
+}
+
+.pyro > .after {
+  animation-delay: 1.25s;
+  animation-duration: 1.25s, 1.25s, 6.25s;
+}
+
+/* COLORES MODERNOS DE LOS FUEGOS (neones suaves) */
+@keyframes bang {
+  to {
+    box-shadow:
+      154px -375px #00eaff, 110px -22px #00ff9c, 205px 43px #ff006e,
+      -46px -156px #ae00ff, 11px -220px #00ffcc, 31px 33px #ff009d,
+      168px -136px #00ffd9, -169px -252px #ff6a00, -137px -174px #00bfff,
+      190px -389px #00ff8a, -180px 32px #00ffd0, -247px -261px #00ffee,
+      -33px -321px #5e00ff, 143px -1px #ff00a6, -171px -326px #00ffae,
+      61px -181px #00ffe6, 94px 41px #00aaff, -121px -178px #00ffb3;
+  }
+}
+
+@keyframes gravity {
+  to {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+}
+
+@keyframes position {
+  0%, 19.9% { margin-top: 10%; margin-left: 40%; }
+  20%, 39.9% { margin-top: 40%; margin-left: 30%; }
+  40%, 59.9% { margin-top: 20%; margin-left: 70%; }
+  60%, 79.9% { margin-top: 30%; margin-left: 20%; }
+  80%, 99.9% { margin-top: 30%; margin-left: 80%; }
+}
+
+/* === TITULOS GRANDES === */
+#MenuScreen span,
+#WinnerScreen span,
+#LoserScreen span {
+  font-size: 200px !important;
+  line-height: 1em;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+}
