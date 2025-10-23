@@ -21,10 +21,9 @@ function loadSceen(screen) {
       loadAudio(1);
       break;
 
-    case 2: // Juego   👈 (OJO: ya no hay "case 2" duplicado)
+    case 2:
       changeVisibility('none','block','none','none');
       loadAudio(2);
-      // Espera un tick para que el div sea visible y tenga tamaño
       setTimeout(() => initScene(), 0);
       break;
 
@@ -47,5 +46,4 @@ function changeVisibility(menu, game, win, lose) {
   document.getElementById("LoserScreen").style.display = lose;
 }
 
-// 👇 Como main.js es módulo, expón las funciones usadas por onclick en el HTML:
 window.loadSceen = loadSceen;
